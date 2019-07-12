@@ -4,23 +4,20 @@
 <head>
   <title>Chess</title>
   <link rel="stylesheet" href="css/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="css/main.css"></link>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="js/chessboard-1.0.0.min.js"></script>
+  <script src="js/main.js"></script>
 </head>
 
-<body>
-  <div id="myBoard" style="width: 500px"></div>
-  <button id="btn-empty">Empty Board</button><button id="btn-start">Start</button>
-  <script>
-    var board = ChessBoard('myBoard');
-    $('#btn-empty').click(function () {
-      board = ChessBoard('myBoard');
-    })
-
-    $('#btn-start').click(function () {
-      board = ChessBoard('myBoard', 'start');
-    })
-  </script>
+<body id="main">
+  <div id="myBoard" style="width: 450px"></div>
+  <div id="btnPanel">
+    <button id="clearBtn">Clear Board</button>
+    <button id="startBtn">Start</button>
+    <button id="destroyBtn">Destroy Board</button>
+    <button id="toggleBtn">Toggle</button>
+  </div>
 </body>
 
 </html>
