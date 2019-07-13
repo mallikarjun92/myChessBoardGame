@@ -4,20 +4,28 @@
 <head>
   <title>Chess</title>
   <link rel="stylesheet" href="css/chessboard-1.0.0.min.css">
-  <link rel="stylesheet" href="css/main.css"></link>
+  <link rel="stylesheet" href="css/main.css">
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
   <script src="js/chessboard-1.0.0.min.js"></script>
   <script src="js/main.js"></script>
 </head>
 
 <body id="main">
   <div id="myBoard" style="width: 450px"></div>
+  <label>Status:</label>
+  <div id="status"></div>
+  <label>FEN:</label>
+  <div id="fen"></div>
+  <label>PGN:</label>
+  <div id="pgn"></div>
   <div id="btnPanel">
     <button id="clearBtn">Clear Board</button>
     <button id="startBtn">Start</button>
     <button id="destroyBtn">Destroy Board</button>
-    <button id="toggleBtn">Toggle</button>
+    <button id="toggleBtn">Toggle Orientation</button>
   </div>
+
 </body>
 
 </html>
