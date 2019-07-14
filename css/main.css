@@ -1,15 +1,10 @@
-/*#main {
-    margin-left: 25%;
+.board {
+    margin: 40px auto auto auto;
 }
 
-#myBoard {
-    
+.gameStatus {
+    margin: 100px auto auto auto;
 }
-
-#btnPanel {
-    text-align: center;
-    display: inline-block;
-}*/
 
 @media only screen and (max-width: 600px) {
 /*    body {
@@ -17,6 +12,6 @@
     }*/
 
     #myBoard{
-        width: 350px;
+        width: 350px !important;
     }
   }
