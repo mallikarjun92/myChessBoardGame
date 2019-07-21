@@ -1,9 +1,9 @@
 .board {
-    margin: 40px auto auto auto;
+    margin: 40px auto auto 100px;
 }
 
-.gameStatus, #btnPanel {
-    margin: 100px 50px auto auto;
+.menuSection {
+    margin: 100px auto auto 150px;
 }
 
 
