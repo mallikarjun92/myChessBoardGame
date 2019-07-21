@@ -69,7 +69,7 @@ $(document).ready(function () {
 
 
 
-    /*/make random moves
+/*    //make random moves
     function makeRandomMove() {
         var possibleMoves = game.moves()
 
@@ -82,7 +82,8 @@ $(document).ready(function () {
 
     }
 
-    /function onDrop(source, target) {
+    
+    function onDrop(source, target) {
         removeGreySquares()
         // see if the move is legal
         var move = game.move({
@@ -97,11 +98,8 @@ $(document).ready(function () {
 
         // make random legal move for black
         window.setTimeout(makeRandomMove, 250)
-
-        
-
-    }*/
-
+    }
+*/
 
 // Handles what to do after human makes move.
 // Computer automatically makes next move
@@ -141,7 +139,9 @@ var onDrop = function(source, target) {
         console.log('Old position: ' + Chessboard.objToFen(oldPos));
         console.log('New position: ' + Chessboard.objToFen(newPos));
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-        //console.log(Chess.board())
+        console.log(game.board());
+        //mat=game.board();
+        //console.log(mat);
         $('#status').html('Old position: ' + Chessboard.objToFen(oldPos)+'<br>'+"WHITE' TURN" );
         $('#fen').html(Chessboard.objToFen(newPos));
         if (game.game_over()) {
@@ -181,12 +181,12 @@ var onDrop = function(source, target) {
     $('#clearBtn').click(function () {
         
         board.clear(),
-        $('#status').html('<br>GAME RESET');
-        $('#status').html('<br>GAME RESET');
+        
             board.position(game.reset()),
             config.onMouseoutSquare = '',
             config.onMouseoverSquare = ''
             console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+            $('#status').html('<br>GAME RESET');
             
     });
     $('#toggleBtn').on('click', board.flip)

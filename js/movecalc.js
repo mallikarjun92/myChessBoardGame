@@ -47,7 +47,7 @@ var evaluateBoard = function(board, color) {
  * @return {string} the best move
  */
  calcBestMoveOne = function(playerColor) {
-  alert('bestMoveOne')
+  //alert('bestMoveOne')
   // List all possible moves
   var possibleMoves = game.moves();
   // Sort moves randomly, so the same move isn't always picked on ties
@@ -139,7 +139,7 @@ var evaluateBoard = function(board, color) {
  * @param {Boolean} isMaximizingPlayer - If current turn is maximizing or minimizing player
  * @return {Array} The best move value, and the best move
  */
-var calcBestMove = function(depth, game, playerColor,
+ calcBestMove = function(depth, game, playerColor,
                             alpha=Number.NEGATIVE_INFINITY,
                             beta=Number.POSITIVE_INFINITY,
                             isMaximizingPlayer=true) {

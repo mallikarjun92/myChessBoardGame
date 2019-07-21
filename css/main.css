@@ -6,10 +6,10 @@
     margin: 100px 50px auto auto;
 }
 
-.menu-btn:active, .menu-btn:focus, .menu-btn:visited, #startBtn {
-    padding-right: 15px !important;
-    padding-left: 15px !important;
-}
+
+/*html, body {
+    background: rgb(165, 158, 158);
+}*/
 
 @media only screen and (max-width: 600px) {
 /*    body {

@@ -29,7 +29,7 @@ $(document).ready(function(){
 }
 
 // Computer vs Computer
-var playGame = function(algo=4, skillW=2, skillB=2) {
+ playGame = function(algo=4, skillW=2, skillB=2) {
   if (game.game_over() === true) {
     console.log('game over');
     alert('Game over!');
