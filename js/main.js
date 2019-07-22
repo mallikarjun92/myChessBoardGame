@@ -60,6 +60,7 @@ $(document).ready(function () {
 
         if (game.in_checkmate() === true || game.in_draw() === true ||
             piece.search(/^b/) !== -1) {
+            alert("game is over!");
             return false;
         }
 
@@ -173,6 +174,7 @@ $(document).ready(function () {
         $('#startBtn').click(function () {
             $('#diffLevel').show();
             $('#startBtn').hide();
+            $('#clearBtn').show();
             board.start(),
                 board.position(game.reset()),
                 config.onMouseoutSquare = onMouseoutSquare,
@@ -183,6 +185,7 @@ $(document).ready(function () {
         board.clear(),
         $('#startBtn').show();
         $('#diffLevel').hide();
+        $('#clearBtn').hide();
         board.position(game.reset()),
             config.onMouseoutSquare = '',
             config.onMouseoverSquare = ''
@@ -198,16 +201,19 @@ $(document).ready(function () {
     $('#easy').click(function () {
         algo = 1;
         $('#diffLevel').hide();
+        $('#clearBtn').show();
     });
 
     $('#medium').click(function () {
         algo = 2;
         $('#diffLevel').hide();
+        $('#clearBtn').show();
     });
 
     $('#hard').click(function () {
         algo = 3;
         $('#diffLevel').hide();
+        $('#clearBtn').show();
     });
 
 

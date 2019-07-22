@@ -3,8 +3,12 @@
 }
 
 .menuSection {
-    margin: 170px auto auto 150px;
+    margin: 100px auto auto 150px;
     text-align: center;
+}
+
+#clearBtn {
+    display: none;
 }
 
 #diffLevel {
