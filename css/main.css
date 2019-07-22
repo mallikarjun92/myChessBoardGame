@@ -3,7 +3,13 @@
 }
 
 .menuSection {
-    margin: 100px auto auto 150px;
+    margin: 170px auto auto 150px;
+    text-align: center;
+}
+
+#diffLevel {
+    display: none;
+    text-align: center;
 }
 
 

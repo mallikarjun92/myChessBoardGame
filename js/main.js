@@ -1,9 +1,9 @@
 $(document).ready(function () {
-     board = null
-     game = new Chess() 
+    board = null
+    game = new Chess()
+    algo = undefined;
     var whiteSquareGrey = '#a9a9a9'
     var blackSquareGrey = '#696969'
-
 
     //game visualization & handling
     //highlight legal moves only
@@ -69,63 +69,63 @@ $(document).ready(function () {
 
 
 
-/*    //make random moves
-    function makeRandomMove() {
-        var possibleMoves = game.moves()
-
-        // game over
-        if (possibleMoves.length === 0) return
-
-        var randomIdx = Math.floor(Math.random() * possibleMoves.length)
-        game.move(possibleMoves[randomIdx])
-        board.position(game.fen())
-
-    }
-
+    /*    //make random moves
+        function makeRandomMove() {
+            var possibleMoves = game.moves()
     
-    function onDrop(source, target) {
-        removeGreySquares()
+            // game over
+            if (possibleMoves.length === 0) return
+    
+            var randomIdx = Math.floor(Math.random() * possibleMoves.length)
+            game.move(possibleMoves[randomIdx])
+            board.position(game.fen())
+    
+        }
+    
+        
+        function onDrop(source, target) {
+            removeGreySquares()
+            // see if the move is legal
+            var move = game.move({
+                from: source,
+                to: target,
+                promotion: 'q' // NOTE: always promote to a queen for example simplicity
+            })
+    
+            // illegal move
+            if (move === null) return 'snapback'
+            //updateStatus()
+    
+            // make random legal move for black
+            window.setTimeout(makeRandomMove, 250)
+        }
+    */
+
+    // Handles what to do after human makes move.
+    // Computer automatically makes next move
+    var onDrop = function (source, target) {
+
+        removeGreySquares();
         // see if the move is legal
         var move = game.move({
             from: source,
             to: target,
             promotion: 'q' // NOTE: always promote to a queen for example simplicity
-        })
+        });
 
-        // illegal move
-        if (move === null) return 'snapback'
-        //updateStatus()
+        // If illegal move, snapback
+        if (move === null) return 'snapback';
 
-        // make random legal move for black
-        window.setTimeout(makeRandomMove, 250)
-    }
-*/
+        // Log the move
+        console.log(move)
 
-// Handles what to do after human makes move.
-// Computer automatically makes next move
-var onDrop = function(source, target) {
-   
-    removeGreySquares();
-    // see if the move is legal
-    var move = game.move({
-      from: source,
-      to: target,
-      promotion: 'q' // NOTE: always promote to a queen for example simplicity
-    });
-  
-    // If illegal move, snapback
-    if (move === null) return 'snapback';
-  
-    // Log the move
-    console.log(move)
-    
-  
-    // make move for black
-    window.setTimeout(function() {
-        //alert('window.setTimout Success');
-      makeMove(1, 3);
-    }, 250);
-  };
+
+        // make move for black
+        window.setTimeout(function () {
+            //alert('window.setTimout Success');
+            makeMove(algo, 3);
+        }, 250);
+    };
 
 
     // update the board position after the piece snap
@@ -142,12 +142,12 @@ var onDrop = function(source, target) {
         console.log(game.board());
         //mat=game.board();
         //console.log(mat);
-        $('#status').html('Old position: ' + Chessboard.objToFen(oldPos)+'<br>'+"WHITE' TURN" );
-        $('#fen').html(Chessboard.objToFen(newPos));
+        //$('#status').html('Old position: ' + Chessboard.objToFen(oldPos)+'<br>'+"WHITE' TURN" );
+        //$('#fen').html(Chessboard.objToFen(newPos));
         if (game.game_over()) {
             //alert('end')
-            $('#status').html('Old position: ' + Chessboard.objToFen(oldPos) + '<br>GAME OVER');
-            console.log('Game Over');  
+            //$('#status').html('Old position: ' + Chessboard.objToFen(oldPos) + '<br>GAME OVER');
+            console.log('Game Over');
         }
 
     }
@@ -169,9 +169,10 @@ var onDrop = function(source, target) {
 
     }
     board = Chessboard('myBoard', config),
-
         //strat btn function
         $('#startBtn').click(function () {
+            $('#diffLevel').show();
+            $('#startBtn').hide();
             board.start(),
                 board.position(game.reset()),
                 config.onMouseoutSquare = onMouseoutSquare,
@@ -179,16 +180,35 @@ var onDrop = function(source, target) {
         });
 
     $('#clearBtn').click(function () {
-        
         board.clear(),
-        
-            board.position(game.reset()),
+        $('#startBtn').show();
+        $('#diffLevel').hide();
+        board.position(game.reset()),
             config.onMouseoutSquare = '',
             config.onMouseoverSquare = ''
-            console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-            $('#status').html('<br>GAME RESET');
-            
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+        $('#status').html('<br>GAME RESET');
+
     });
-    $('#toggleBtn').on('click', board.flip)
+    //$('#toggleBtn').on('click', board.flip);
+
+
+    //selecting difficulty level
+
+    $('#easy').click(function () {
+        algo = 1;
+        $('#diffLevel').hide();
+    });
+
+    $('#medium').click(function () {
+        algo = 2;
+        $('#diffLevel').hide();
+    });
+
+    $('#hard').click(function () {
+        algo = 3;
+        $('#diffLevel').hide();
+    });
+
 
 }); //do not erase end of document ready func
