@@ -1,4 +1,4 @@
-# myChessBoradGameJS
+# ChessBoradGame
 Built the Chess Board game using HTML5, CSS3 and JavaScript.
 
 <strong>#Components/Libraries used are:</strong><br>
