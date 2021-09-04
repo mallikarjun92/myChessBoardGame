@@ -1,6 +1,6 @@
 # myChessBoradGameJS
-This is to record progress of building Chess Board game using HTML5, CSS3 and Javascript.
+Built the Chess Board game using HTML5, CSS3 and JavaScript.
 
-<strong>#Frameworks</strong><br>
+<strong>#Frameworks/Components used</strong><br>
 1.ChessboardJS<br>
 2.Chess.js
